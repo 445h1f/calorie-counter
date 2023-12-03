@@ -1,0 +1,182 @@
+[
+    {
+        "name": "Salmon Fillet",
+        "serving_size": "100 grams",
+        "calories": 206,
+        "protein": 25,
+        "fat": 13,
+        "carbohydrates": 0,
+        "fiber": 0
+    },
+    {
+        "name": "Quinoa",
+        "serving_size": "1 cup cooked",
+        "calories": 222,
+        "protein": 8,
+        "fat": 4,
+        "carbohydrates": 39,
+        "fiber": 5
+    },
+    {
+        "name": "Broccoli",
+        "serving_size": "1 cup chopped",
+        "calories": 55,
+        "protein": 3,
+        "fat": 1,
+        "carbohydrates": 11,
+        "fiber": 5
+    },
+    {
+        "name": "Greek Yogurt (Plain, Non-fat)",
+        "serving_size": "1 cup",
+        "calories": 100,
+        "protein": 23,
+        "fat": 0,
+        "carbohydrates": 9,
+        "fiber": 9
+    },
+    {
+        "name": "Almonds",
+        "serving_size": "1 ounce",
+        "calories": 160,
+        "protein": 6,
+        "fat": 14,
+        "carbohydrates": 6,
+        "fiber": 3.5
+    },
+    {
+        "name": "Grilled Chicken Breast",
+        "serving_size": "3 ounces (cooked)",
+        "calories": 165,
+        "protein": 31,
+        "fat": 3.6,
+        "carbohydrates": 0,
+        "fiber": 0
+    },
+    {
+        "name": "Vegetable Stir-Fry",
+        "serving_size": "1 cup",
+        "calories": 120,
+        "protein": 4,
+        "fat": 7,
+        "carbohydrates": 13,
+        "fiber": 4
+    },
+    {
+        "name": "Quinoa Salad",
+        "serving_size": "1 cup",
+        "calories": 222,
+        "protein": 8,
+        "fat": 4,
+        "carbohydrates": 39,
+        "fiber": 5
+    },
+    {
+        "name": "Tuna Salad",
+        "serving_size": "1 cup",
+        "calories": 383,
+        "protein": 41,
+        "fat": 21,
+        "carbohydrates": 4,
+        "fiber": 2
+    },
+    {
+        "name": "Sweet Potato",
+        "serving_size": "1 medium (baked)",
+        "calories": 103,
+        "protein": 2,
+        "fat": 0,
+        "carbohydrates": 24,
+        "fiber": 4
+    },
+    {
+        "name": "Oatmeal",
+        "serving_size": "1 cup cooked",
+        "calories": 154,
+        "protein": 6,
+        "fat": 3,
+        "carbohydrates": 27,
+        "fiber": 4
+    },
+    {
+        "name": "Eggs (Hard-boiled)",
+        "serving_size": "2 large eggs",
+        "calories": 143,
+        "protein": 13,
+        "fat": 10,
+        "carbohydrates": 1,
+        "fiber": 0
+    },
+    {
+        "name": "Spinach",
+        "serving_size": "1 cup (cooked)",
+        "calories": 41,
+        "protein": 5,
+        "fat": 1,
+        "carbohydrates": 7,
+        "fiber": 4
+    },
+    {
+        "name": "Cottage Cheese",
+        "serving_size": "1 cup",
+        "calories": 220,
+        "protein": 28,
+        "fat": 10,
+        "carbohydrates": 6,
+        "fiber": 0
+    },
+    {
+        "name": "Brown Rice",
+        "serving_size": "1 cup cooked",
+        "calories": 215,
+        "protein": 5,
+        "fat": 1.6,
+        "carbohydrates": 45,
+        "fiber": 3.5
+    },
+    {
+        "name": "Avocado",
+        "serving_size": "1 medium",
+        "calories": 234,
+        "protein": 3,
+        "fat": 21,
+        "carbohydrates": 12,
+        "fiber": 10
+    },
+    {
+        "name": "Chickpeas",
+        "serving_size": "1 cup (canned)",
+        "calories": 269,
+        "protein": 14,
+        "fat": 4,
+        "carbohydrates": 45,
+        "fiber": 12
+    },
+    {
+        "name": "Ground Turkey",
+        "serving_size": "3 ounces (cooked)",
+        "calories": 193,
+        "protein": 22,
+        "fat": 11,
+        "carbohydrates": 0,
+        "fiber": 0
+    },
+    {
+        "name": "Blueberries",
+        "serving_size": "1 cup",
+        "calories": 84,
+        "protein": 1,
+        "fat": 0.5,
+        "carbohydrates": 21,
+        "fiber": 3.5
+    },
+    {
+        "name": "Steamed Asparagus",
+        "serving_size": "1 cup",
+        "calories": 27,
+        "protein": 3,
+        "fat": 0.2,
+        "carbohydrates": 5,
+        "fiber": 3
+    }
+]

@@ -1,0 +1,155 @@
+{% extends "counter/base.html" %}
+{% block body %}
+<div class="container mt-5">
+  <h2>Calorie Progress</h2>
+
+  <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div id="progress-bar" class="" style="width: 0%;">
+      0%
+    </div>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <form method="post" id="dietForm">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="food_consumed" class="form-label">Select Food:</label>
+      <select class="form-select" name="food_consumed" id="food_consumed">
+        {% for food in foods %}
+          <option value="{{ food.pk }}">{{ food.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add to Diet</button>
+  </form>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-7">
+      <h4> Today's Consumption</h4>
+      <div class="table-responsive overflow-auto">
+        <table id="food-table" class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+          <th>#</th>
+          <th>Food Name</th>
+          <th>Carbohydrates</th>
+          <th>Protein</th>
+          <th>Fat</th>
+          <th>Fiber</th>
+          <th>Calories</th>
+          <th>Remove Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for consumed_food in consumed_foods %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ consumed_food.food.name }}</td>
+            <td>{{ consumed_food.food.carbohydrates }}</td>
+            <td>{{ consumed_food.food.protein }}</td>
+            <td>{{ consumed_food.food.fat }}</td>
+            <td>{{ consumed_food.food.fiber }}</td>
+            <td>{{ consumed_food.food.calories }}</td>
+            <td><a class="btn btn-danger" href="{% url 'delete' consumed_food.id %}">X</a></td>
+          </tr>
+          {% endfor %}
+          <tfoot>
+            <tr>
+              <td>x</td>
+              <td id="total">Total</td>
+              <td id="total-carbohydrates"></td>
+              <td id="total-protein"></td>
+              <td id="total-fat"></td>
+              <td id="total-fiber"></td>
+              <td id="total-calories"></td>
+              <td> </td>
+            </tr>
+          </tfoot>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="">
+      <h4>Today's breakdown</h4>
+    </div>
+    <div class="col-md-12">
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+
+  var table = document.getElementById('food-table');
+
+  var carbohydrates = 0, protein = 0, fat = 0, fiber = 0, calories = 0;
+
+  for (var i=1; i<table.rows.length-1; i++) {
+    carbohydrates += parseFloat(table.rows[i].cells[2].innerText);
+    protein += parseFloat(table.rows[i].cells[3].innerText);
+    fat += parseFloat(table.rows[i].cells[4].innerText);
+    fiber += parseFloat(table.rows[i].cells[5].innerText);
+    calories += parseFloat(table.rows[i].cells[6].innerText);
+  }
+
+  document.getElementById('total-carbohydrates').innerText = Math.round(carbohydrates);
+  document.getElementById('total-protein').innerText = Math.round(protein);
+  document.getElementById('total-fat').innerText = Math.round(fat);
+  document.getElementById('total-fiber').innerText = Math.round(fiber);
+  document.getElementById('total-calories').innerText = Math.round(calories);
+
+  var caloriesPercentage = calories * 100 / 2000;
+
+  progressBar = document.getElementById('progress-bar');
+
+  if (caloriesPercentage <= 20) {
+    progressBar.setAttribute("class", "progress-bar bg-danger");
+  } else if (caloriesPercentage <= 80) {
+    progressBar.setAttribute("class", "progress-bar bg-info");
+  } else {
+    progressBar.setAttribute("class", "progress-bar bg-success");
+  }
+
+  progressBar.setAttribute("style", `width: ${caloriesPercentage}%`);
+  progressBar.innerText = `${caloriesPercentage}%`;
+  progressBar.setAttribute("aria-valuenow", calories);
+
+  var total  = carbohydrates + protein + fat + fiber;
+  var carbsP = Math.round((carbohydrates/total)*100);
+  var protienP = Math.round((protein/total)*100);
+  var fatsP = Math.round((fat/total)*100);
+  var fiberP = Math.round((fiber/total)*100);
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: [`Carbs ${carbsP}`, `Protein ${protienP}`, `Fats ${fatsP}`, `Fiber ${fiberP}`],
+        datasets: [{
+            label: '# of Votes',
+            data: [carbsP, protienP, fatsP, fiberP],
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+
+            ],
+            borderWidth: 1
+        }]
+    },
+
+});
+</script>
+{% endblock %}
